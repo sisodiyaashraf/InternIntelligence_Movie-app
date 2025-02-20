@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/bottomnavbar/search_page.dart';
 import 'package:movie_app/screens/MovieDetailScreen.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -36,12 +35,9 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              /// **Carousel Section**
               const CarouselSlider(),
 
               const SizedBox(height: 20),
-
-              /// **Categories Section**
               const Text(
                 "Categories",
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
@@ -58,7 +54,6 @@ class _HomePageState extends State<HomePage> {
 
               const SizedBox(height: 20),
 
-              /// **Most Popular Section**
               const Text(
                 "Most Popular",
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
@@ -67,7 +62,6 @@ class _HomePageState extends State<HomePage> {
 
               const SizedBox(height: 20),
 
-              /// **Latest Movies Section**
               const Text(
                 "Latest Movies",
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
@@ -81,7 +75,6 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-/// Carousel Slider Component
 class CarouselSlider extends StatefulWidget {
   const CarouselSlider({super.key});
 
@@ -144,7 +137,6 @@ class _CarouselSliderState extends State<CarouselSlider> {
   }
 }
 
-/// Category Chips Component
 class CategoryChip extends StatelessWidget {
   final String label;
   const CategoryChip({required this.label, super.key});
@@ -157,10 +149,10 @@ class CategoryChip extends StatelessWidget {
     label: Text(
       label,
       style: TextStyle(
-        color: label == "All" ? Colors.white : Colors.black, // Text color
+        color: label == "All" ? Colors.white : Colors.black, 
       ),
     ),
-    backgroundColor: label == "All" ? Colors.red : Colors.white, // Red for "All", white for others
+    backgroundColor: label == "All" ? Colors.red : Colors.white, 
   ),
 );
   }
@@ -193,9 +185,8 @@ class MovieList extends StatelessWidget {
   }
 }
 
-/// Movie Card Component
 class MovieCard extends StatelessWidget {
-  final String imagePath; // Accepts image path dynamically
+  final String imagePath; 
 
   const MovieCard({super.key, required this.imagePath});
 
@@ -214,7 +205,7 @@ class MovieCard extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 image: DecorationImage(
-                  image: AssetImage(imagePath), // Dynamic image
+                  image: AssetImage(imagePath), 
                   fit: BoxFit.cover,
                 ),
               ),
@@ -225,35 +216,5 @@ class MovieCard extends StatelessWidget {
     );
   }
 }
-/// Movie Detail Screen
 
 
-class MovieSearchScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.black,
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: Text("Search Movies"),
-      ),
-      body: Column(
-        children: [
-          SearchPage(
-            onSearch: (query) {
-              print("Searching for: $query");
-            },
-          ),
-          Expanded(
-            child: Center(
-              child: Text(
-                "Search results will appear here",
-                style: TextStyle(color: Colors.white),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}

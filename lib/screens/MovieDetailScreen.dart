@@ -12,7 +12,6 @@ class MovieDetailScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            // Image and Header Section
             Stack(
               children: [
                 Container(
@@ -33,7 +32,6 @@ class MovieDetailScreen extends StatelessWidget {
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         begin: Alignment.topCenter,
-                      
                         end: Alignment.bottomCenter,
                         colors: [
                           Colors.black.withOpacity(0.10),
@@ -46,7 +44,15 @@ class MovieDetailScreen extends StatelessWidget {
                 Positioned(
                   top: 40,
                   left: 10,
-                  child: Icon(Icons.arrow_back, color: Colors.white),
+                  child: GestureDetector(
+              onTap: () {
+                Navigator.pop(context); // Nav.pop use for back to previous screen
+              },
+              child: Icon(
+                Icons.arrow_back,
+                color: Colors.white,
+                size: 30,
+              ),),
                 ),
                 Positioned(
                   top: 40,
@@ -61,7 +67,7 @@ class MovieDetailScreen extends StatelessWidget {
                 ),
            ] ),
 
-            // Movie Details
+            
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(
@@ -125,7 +131,7 @@ class MovieDetailScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 16),
 
-                  // Tab Section
+                  
                   
                    DefaultTabController(
       initialIndex: 1,
@@ -149,7 +155,7 @@ class MovieDetailScreen extends StatelessWidget {
                                 height: 135,
                                 
                                 decoration: BoxDecoration(
-                    color: Colors.blueGrey,borderRadius: BorderRadius.circular(20)),
+                    color: const Color.fromARGB(255, 34, 38, 40),borderRadius: BorderRadius.circular(20)),
                     child:Row(
   children: <Widget>[
     Padding(
@@ -158,7 +164,7 @@ class MovieDetailScreen extends StatelessWidget {
         width: 140,
         height: 120,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20), // Border radius applied here
+          borderRadius: BorderRadius.circular(20), 
           image: DecorationImage(
             image: AssetImage('assets/images/aladin.jpeg'),
             fit: BoxFit.cover,
@@ -173,13 +179,13 @@ class MovieDetailScreen extends StatelessWidget {
   crossAxisAlignment: CrossAxisAlignment.start,
   children: <Widget>[
     Row(
-      mainAxisSize: MainAxisSize.min, // Prevents unnecessary space
+      mainAxisSize: MainAxisSize.min, 
       children: [
         Text(
           "Trailer",
           style: TextStyle(color: Colors.white, fontSize: 17),
         ),
-        SizedBox(width: 90), // Adds space between text and icon
+        SizedBox(width: 90), 
         Icon(Icons.download_rounded, color: Colors.white),
       ],
     ),
